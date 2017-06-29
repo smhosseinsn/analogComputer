@@ -1,0 +1,59 @@
+*ddccTest.sp
+.TEMP 70
+.option runlvl=5 symb=1 dcon= 1
+*.option post
+*.option posttop=1
+*.option probe=1
+.subckt chen y11 y21 y31 vb1 vb2 x vdd vss
+m1 net7 	y11 	net8 	vss 	nfet L=chenL1 W='g*chenW1*chenL1' ad='g*chenW1*chenL1*5*chenL1' as='g*chenW1*chenL1*5*chenL1' pd='2*g*chenW1*chenL1+10*chenL1' ps='2*g*chenW1*chenL1+10*chenL1'
+m2 net6 	y21 	net8 	vss 	nfet L=chenL1 W='g*chenW1*chenL1' ad='g*chenW1*chenL1*5*chenL1' as='g*chenW1*chenL1*5*chenL1' pd='2*g*chenW1*chenL1+10*chenL1' ps='2*g*chenW1*chenL1+10*chenL1'
+m3 net6 	x 	net9 	vss 	nfet L=chenL1 W='g*chenW1*chenL1' ad='g*chenW1*chenL1*5*chenL1' as='g*chenW1*chenL1*5*chenL1' pd='2*g*chenW1*chenL1+10*chenL1' ps='2*g*chenW1*chenL1+10*chenL1'
+m4 net7 	y31 	net9 	vss 	nfet L=chenL1 W='g*chenW1*chenL1' ad='g*chenW1*chenL1*5*chenL1' as='g*chenW1*chenL1*5*chenL1' pd='2*g*chenW1*chenL1+10*chenL1' ps='2*g*chenW1*chenL1+10*chenL1'
+m5 net1 	net2 	net6 	vss 	nfet L=chenL2 W='g*chenW2*chenL2' ad='g*chenW2*chenL2*5*chenL2' as='g*chenW2*chenL2*5*chenL2' pd='2*g*chenW2*chenL2+10*chenL2' ps='2*g*chenW2*chenL2+10*chenL2'
+m6 net2 	net2 	net7 	vss 	nfet L=chenL2 W='g*chenW2*chenL2' ad='g*chenW2*chenL2*5*chenL2' as='g*chenW2*chenL2*5*chenL2' pd='2*g*chenW2*chenL2+10*chenL2' ps='2*g*chenW2*chenL2+10*chenL2'
+m7 net1 	net1 	vdd 	vdd 	pfet L=chenL3 W='g*chenW3*chenL3' ad='g*chenW3*chenL3*5*chenL3' as='g*chenW3*chenL3*5*chenL3' pd='2*g*chenW3*chenL3+10*chenL3' ps='2*g*chenW3*chenL3+10*chenL3'
+m8 net2 	net1 	vdd 	vdd 	pfet L=chenL3 W='g*chenW3*chenL3' ad='g*chenW3*chenL3*5*chenL3' as='g*chenW3*chenL3*5*chenL3' pd='2*g*chenW3*chenL3+10*chenL3' ps='2*g*chenW3*chenL3+10*chenL3'
+m9 net3 	net2 	vdd 	vdd 	pfet L=chenL5 W='g*chenW5*chenL5' ad='g*chenW5*chenL5*5*chenL5' as='g*chenW5*chenL5*5*chenL5' pd='2*g*chenW5*chenL5+10*chenL5' ps='2*g*chenW5*chenL5+10*chenL5'
+m12 x 		net7 	net3 	vdd 	pfet L=chenL5 W='g*chenW5*chenL5' ad='g*chenW5*chenL5*5*chenL5' as='g*chenW5*chenL5*5*chenL5' pd='2*g*chenW5*chenL5+10*chenL5' ps='2*g*chenW5*chenL5+10*chenL5'
+m15 net8 	vb1 	net10 	vss 	nfet L=chenL4 W='g*chenW4*chenL4' ad='g*chenW4*chenL4*5*chenL4' as='g*chenW4*chenL4*5*chenL4' pd='2*g*chenW4*chenL4+10*chenL4' ps='2*g*chenW4*chenL4+10*chenL4'
+m16 net9 	vb1 	net11 	vss 	nfet L=chenL4 W='g*chenW4*chenL4' ad='g*chenW4*chenL4*5*chenL4' as='g*chenW4*chenL4*5*chenL4' pd='2*g*chenW4*chenL4+10*chenL4' ps='2*g*chenW4*chenL4+10*chenL4'
+m20 net10 	vb2 	vss 	vss 	nfet L=chenL4 W='g*chenW4*chenL4' ad='g*chenW4*chenL4*5*chenL4' as='g*chenW4*chenL4*5*chenL4' pd='2*g*chenW4*chenL4+10*chenL4' ps='2*g*chenW4*chenL4+10*chenL4'
+m21 net11 	vb2 	vss 	vss 	nfet L=chenL4 W='g*chenW4*chenL4' ad='g*chenW4*chenL4*5*chenL4' as='g*chenW4*chenL4*5*chenL4' pd='2*g*chenW4*chenL4+10*chenL4' ps='2*g*chenW4*chenL4+10*chenL4'
+m17 x 	vb1 	net12 	vss 	nfet L=chenL6 W='g*chenW6*chenL6' ad='g*chenW6*chenL6*5*chenL6' as='g*chenW6*chenL6*5*chenL6' pd='2*g*chenW6*chenL6+10*chenL6' ps='2*g*chenW6*chenL6+10*chenL6'
+m22 net12 	vb2 	vss 	vss 	nfet L=chenL6 W='g*chenW6*chenL6' ad='g*chenW6*chenL6*5*chenL6' as='g*chenW6*chenL6*5*chenL6' pd='2*g*chenW6*chenL6+10*chenL6' ps='2*g*chenW6*chenL6+10*chenL6'
+.ends
+.include "/home/cad/kits/IBM_CMRF8SF-LM013/IBM_PDK/cmrf8sf/V1.2.0.0LM/HSPICE/models/model013.lib_inc" $Base *IBM 130n
+.param SUPPLY=0.9
+VB1	vb1 	gnd 	DC	-0.1
+VB2	vb2 	gnd 	DC	-0.38
+X1	y11 y21 y31 vb1 vb2 x vdd vss chen
+VDD 	vdd 	gnd 	DC	'SUPPLY'
+VSS 	vss 	gnd 	DC	'-1*SUPPLY'
+.probe tran POS = PAR('I(VDD)')
+.probe tran Pos_Current = PAR('((POS)^2)^0.5')
+.probe tran NEG = PAR('I(VSS)')
+.probe tran Neg_Current = PAR('((NEG)^2)^0.5')
+.probe tran MISC_BIAS = PAR('(((I(VB1))^2)^0.5)*(((V(VB1))^2)^0.5)+(((I(VB2))^2)^0.5)*(((V(VB2))^2)^0.5)')
+.meas tran Bias_Pos_Curr 	AVG PAR('Pos_Current') from t_bias to t_start_in
+.meas tran Bias_Neg_Curr 	AVG PAR('Neg_Current') from t_bias to t_start_in
+.meas tran Bias_Misc	 	AVG PAR('MISC_BIAS') from t_bias to t_start_in
+.meas tran Bias_Power_Pos 	PARAM 'Bias_Pos_Curr*SUPPLY' from t_bias to t_start_in
+.meas tran Bias_Power_Neg 	PARAM 'Bias_Neg_Curr*SUPPLY' from t_bias to t_start_in
+.meas tran Total_Bias_Power 	PARAM 'Bias_Power_Pos + Bias_Power_Neg + Bias_Misc' from t_bias to t_start_in
+.meas tran Avg_Pos_Curr 	AVG PAR('Pos_Current') from t_start_in to t_total
+.meas tran Avg_Neg_Curr 	AVG PAR('Neg_Current') from t_start_in to t_total
+.meas tran Power_Misc	 	AVG PAR('MISC_BIAS') from t_start_in to t_total
+.meas tran Power_Pos 		PARAM 'Avg_Pos_Curr*SUPPLY' from t_start_in to t_total
+.meas tran Power_Neg 		PARAM 'Avg_Neg_Curr*SUPPLY' from t_start_in to t_total
+.meas tran Total_Average_Power 	PARAM 'Power_Pos + Power_Neg + Power_Misc' from t_start_in to t_total
+.probe tran X_ERROR = PAR('V(x) - (v(y11) - v(y21) + v(y31))')
+.probe tran X_SQ_ERROR = PAR('((X_ERROR)^2)^0.5')
+.meas  tran TOTAL_X_SQ_ERROR INTEGRAL PAR('X_SQ_ERROR') from t_start_in to t_total
+.meas  tran AVG_X_SQ_ERROR AVG PAR('X_SQ_ERROR') from t_start_in to t_total
+.probe tran X_OUT_SQ = PAR('((V(x))^2)^0.5')
+.meas  tran AVG_X_OUT_SQ AVG PAR('X_OUT_SQ') from t_start_in to t_total
+.meas  tran X_ERROR_RATE PARAM 'AVG_X_SQ_ERROR/AVG_X_OUT_SQ*100' from t_start_in to t_total
+.meas ac peak avg vdb(x) FROM=1Hz TO=100kHz
+.meas ac f3db when vdb(x)='peak-3'
+.param Amax=0.3
+
