@@ -24,6 +24,27 @@ from tdparser import Lexer, Token
 #arg1 = arg2                                50      Assignment
 #arg1 == arg2                               50      Constraint
 
+#Sample invocation
+outputs = function(inputs)
+#compiles to:
+#   send arguments and config to ASIC
+#   block on futex
+
+#Sample definition
+#Input types: independent variable matrix
+#             initial conditions - only for system
+#ANALOG
+outputs = function(inputs) {
+    SYSTEM:
+        constraint1 = expr1...;
+        constraint2 = expr2...;
+
+    ARITHMETIC:
+        output1 <= expr1...;
+        output2 <= expr2...;
+}
+#ANALOG
+
 class Integer(Token):
     def __init__(self, text):
         self.value = int(text)
