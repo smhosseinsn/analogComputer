@@ -25,7 +25,7 @@ from tdparser import Lexer, Token
 #arg1 == arg2                               50      Constraint
 
 #Sample invocation
-outputs = function(inputs)
+[outputs] = function([inputs])
 #compiles to:
 #   send arguments and config to ASIC
 #   block on futex
@@ -38,10 +38,20 @@ outputs = function(inputs) {
     SYSTEM:
         constraint1 = expr1...;
         constraint2 = expr2...;
-
+    #Compiles to
+    #   write constraints
+    #   write config1
+    #   write config2
+    #   D/A to input
+    #   A/D to ouput
     ARITHMETIC:
         output1 <= expr1...;
         output2 <= expr2...;
+    #Compiles to
+    #   write config1
+    #   write config2
+    #   D/A to input
+    #   A/D to ouput
 }
 #ANALOG
 
