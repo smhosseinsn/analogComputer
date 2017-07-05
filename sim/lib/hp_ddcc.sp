@@ -1,5 +1,5 @@
 *hpddcc.sp
-.subckt hpddcc y1 y2 y3 vbb x z	g='g' min='min'
+.subckt hp_ddcc y1 y2 y3 vbb x z	g='g' min='min'
 .param L1='1*min'
 .param L2='1*min'
 .param L3='1*min'

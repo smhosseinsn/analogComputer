@@ -1,6 +1,6 @@
 *lpddcc.sp
 
-.subckt lpddcc y1 y2 y3 vb1 vb2 vb3 x vdd vss	g='g' min='min'
+.subckt lp_ddcc y1 y2 y3 vb1 vb2 vb3 x vdd vss	g='g' min='min'
 .param L1='1*min'
 .param L2='1*min'
 .param L3='1*min'
@@ -26,4 +26,3 @@ m9	net4 	vb2 	vss 	vss 	nfet L=L2 W='W2*L2' ad='W2*L2*5*L2' as='W2*L2*5*L2' pd='
 m10	x 	vb3 	vss 	vss 	nfet L=L2 W='W2*L2' ad='W2*L2*5*L2' as='W2*L2*5*L2' pd='2*W2*L2+10*L2' ps='2*W2*L2+10*L2'
 .ends
 .end
-
