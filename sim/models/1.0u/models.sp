@@ -23,3 +23,4 @@
 + CGDO   = 200E-12         CGSO   = 200E-12         CGBO   = 1E-10              
 + CJ     = 400E-6          PB     = 1               MJ     = 0.5                
 + CJSW   = 300E-12         MJSW   = 0.5   
+.END
